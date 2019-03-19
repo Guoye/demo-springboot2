@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhangguoye.demo.dao.UserDao">
+    <select id="queryUsers" resultType="com.zhangguoye.demo.entity.User">
+        select *
+        from wp_users
+        order by id
+        desc
+    </select>
+    <select id="queryUserByID" resultType="com.zhangguoye.demo.entity.User">
+        select *
+        from wp_users
+        when ID=#{id}
+    </select>
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="ID" keyColumn="ID"
+            parameterType="com.zhangguoye.demo.entity.User">
+        insert into
+        wp_users(user_login,user_pass,user_nicename,user_email,user_url,user_registered,user_activation_key,user_status,display_name)
+        values
+        (
+        #{user_login},
+        #{user_pass},
+        #{user_nicename},
+        #{user_email},
+        #{user_url},
+        #{user_registered},
+        #{user_activation_key},
+        #{user_status},
+        #{display_name}
+        )
+    </insert>
+    <update id="updateUser" parameterType="com.zhangguoye.demo.entity.User">
+        update wp_users
+        <set>
+            <if test="user_login!=null">user_login=#{userLogin},</if>
+            <if test="user_pass!=null">user_pass=#{userPass},</if>
+            <if test="user_nicename!=null">user_nicename=#{userNicename},</if>
+            <if test="user_email!=null">user_email=#{userEmail},</if>
+            <if test="user_url!=null">user_url=#{userUrl},</if>
+            <if test="user_registered!=null">user_registered=#{userRegistered},</if>
+            <if test="user_activation_key!=null">user_activation_key=#{userActivationKey},</if>
+            <if test="user_status!=null">user_status=#{userStatus},</if>
+            <if test="display_name!=null">display_name=#{displayName}</if>
+        </set>
+        where ID=#{ID}
+    </update>
+    <delete id="deleteUser" parameterType="com.zhangguoye.demo.entity.User">
+        delete from
+        wp_users
+        where ID=#{ID}
+    </delete>
+</mapper>

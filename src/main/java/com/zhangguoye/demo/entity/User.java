@@ -1,22 +1,23 @@
 package com.zhangguoye.demo.entity;
 
 public class User {
-    private String userId;
+    private String id;
     private String userLogin;
     private String userPass;
     private String userNicename;
     private String userEmail;
+    private String userUrl;
     private String userRegistered;
     private String userActivationKey;
     private String userStatus;
     private String displayName;
 
-    public String getUserId() {
-        return userId;
+    public String getId() {
+        return id;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getUserLogin() {
@@ -49,6 +50,14 @@ public class User {
 
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
+    }
+
+    public String getUserUrl() {
+        return userUrl;
+    }
+
+    public void setUserUrl(String userUrl) {
+        this.userUrl = userUrl;
     }
 
     public String getUserRegistered() {
