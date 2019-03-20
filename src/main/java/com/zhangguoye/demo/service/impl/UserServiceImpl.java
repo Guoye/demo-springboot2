@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -30,6 +31,9 @@ public class UserServiceImpl implements UserService {
     public boolean addUser(User user) {
         if (user.getUserLogin() !=null && !"".equals(user.getUserLogin())){
             try {
+                if (user.getUserRegistered()==null || "".equals(user.getUserRegistered().toString())){
+                    user.setUserRegistered(new Date());
+                }
                 int effectNum = userDao.insertUser(user);
                 if (effectNum > 0 ){
                     return true;
