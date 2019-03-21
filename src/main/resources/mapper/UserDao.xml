@@ -12,43 +12,43 @@
     <select id="queryUserByID" resultType="com.zhangguoye.demo.entity.User">
         select *
         from wp_users
-        when ID=#{id}
+        where ID=#{id}
     </select>
-    <insert id="insertUser" useGeneratedKeys="true" keyProperty="ID" keyColumn="ID"
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id" keyColumn="ID"
             parameterType="com.zhangguoye.demo.entity.User">
         insert into
         wp_users(user_login,user_pass,user_nicename,user_email,user_url,user_registered,user_activation_key,user_status,display_name)
         values
         (
-        #{user_login},
-        #{user_pass},
-        #{user_nicename},
-        #{user_email},
-        #{user_url},
-        #{user_registered},
-        #{user_activation_key},
-        #{user_status},
-        #{display_name}
+        #{userLogin},
+        #{userPass},
+        #{userNicename},
+        #{userEmail},
+        #{userUrl},
+        #{userRegistered},
+        #{userActivationKey},
+        #{userStatus},
+        #{displayName}
         )
     </insert>
     <update id="updateUser" parameterType="com.zhangguoye.demo.entity.User">
         update wp_users
         <set>
-            <if test="user_login!=null">user_login=#{userLogin},</if>
-            <if test="user_pass!=null">user_pass=#{userPass},</if>
-            <if test="user_nicename!=null">user_nicename=#{userNicename},</if>
-            <if test="user_email!=null">user_email=#{userEmail},</if>
-            <if test="user_url!=null">user_url=#{userUrl},</if>
-            <if test="user_registered!=null">user_registered=#{userRegistered},</if>
-            <if test="user_activation_key!=null">user_activation_key=#{userActivationKey},</if>
-            <if test="user_status!=null">user_status=#{userStatus},</if>
-            <if test="display_name!=null">display_name=#{displayName}</if>
+            <if test="userLogin!=null">user_login=#{userLogin},</if>
+            <if test="userPass!=null">user_pass=#{userPass},</if>
+            <if test="userNicename!=null">user_nicename=#{userNicename},</if>
+            <if test="userEmail!=null">user_email=#{userEmail},</if>
+            <if test="userUrl!=null">user_url=#{userUrl},</if>
+            <if test="userRegistered!=null">user_registered=#{userRegistered},</if>
+            <if test="userActivationKey!=null">user_activation_key=#{userActivationKey},</if>
+            <if test="userStatus!=null">user_status=#{userStatus},</if>
+            <if test="displayName!=null">display_name=#{displayName}</if>
         </set>
-        where ID=#{ID}
+        where ID=#{id}
     </update>
     <delete id="deleteUser" parameterType="com.zhangguoye.demo.entity.User">
         delete from
         wp_users
-        where ID=#{ID}
+        where ID=#{id}
     </delete>
 </mapper>

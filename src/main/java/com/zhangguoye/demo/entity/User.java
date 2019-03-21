@@ -1,5 +1,11 @@
 package com.zhangguoye.demo.entity;
 
+import java.util.Date;
+
+/**
+ * User实体使用 wordpress博客系统 的wp_users表进行设计
+ * id属性 考虑到以后的扩展，设为String类型，其他的就不用注释说明了
+ */
 public class User {
     private String id;
     private String userLogin;
@@ -7,9 +13,9 @@ public class User {
     private String userNicename;
     private String userEmail;
     private String userUrl;
-    private String userRegistered;
+    private Date userRegistered;
     private String userActivationKey;
-    private String userStatus;
+    private int userStatus;
     private String displayName;
 
     public String getId() {
@@ -60,11 +66,11 @@ public class User {
         this.userUrl = userUrl;
     }
 
-    public String getUserRegistered() {
+    public Date getUserRegistered() {
         return userRegistered;
     }
 
-    public void setUserRegistered(String userRegistered) {
+    public void setUserRegistered(Date userRegistered) {
         this.userRegistered = userRegistered;
     }
 
@@ -76,11 +82,11 @@ public class User {
         this.userActivationKey = userActivationKey;
     }
 
-    public String getUserStatus() {
+    public int getUserStatus() {
         return userStatus;
     }
 
-    public void setUserStatus(String userStatus) {
+    public void setUserStatus(int userStatus) {
         this.userStatus = userStatus;
     }
 

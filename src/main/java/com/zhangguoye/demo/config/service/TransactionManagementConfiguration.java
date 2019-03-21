@@ -17,14 +17,14 @@ import javax.sql.DataSource;
 // 在Service方法上添加注解 @Transactional 便可
 public class TransactionManagementConfiguration implements TransactionManagementConfigurer {
 
-    @Autowired
     // 注入DataSourceConfiguration里边的dataSource,通过createDataSource()获取
+    @Autowired
     private DataSource dataSource;
 
-    @Override
     /**
      * 关于事务管理，需要返回PlatformTransactionManager的实现
      */
+    @Override
     public PlatformTransactionManager annotationDrivenTransactionManager() {
         return new DataSourceTransactionManager(dataSource);
     }

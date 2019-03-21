@@ -1,10 +1,13 @@
 package com.zhangguoye.demo.dao;
 
+import com.zhangguoye.demo.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -16,8 +19,8 @@ public class UserDaoTest {
     private UserDao userDao;
 
     @Test
-    public void testQueryUsers() {
-        int size = userDao.queryUsers().size();
-        assertEquals(2,size);
+    public void testQueryUsers(){
+        List<User> userList = userDao.queryUsers();
+        assertEquals(139, userList.size());
     }
 }
