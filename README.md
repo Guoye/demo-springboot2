@@ -5,9 +5,11 @@
 - 基于最新的稳定版本 Springboot 2.1.3.
 - 针对快速入手SSM框架的CRUD，并非是为了小程序，因为没有小程序的前端项目
 - 使用的数据库是现成的wordpress博客数据库。相信大家都听说过wordpress博客，我也有这样的一个wp7年的博客，因此直接拿里面的数据来使用。网址：https://cn.wordpress.org/
-- 项目使用2019版 Intellij IDEA，Mac进行开发。
+- 项目使用2019版 Intellij IDEA，Mac，JDK1.8进行开发。
 
 ### 如何运行
 - 下载-解压，直接在Intellij直接导入项目运行。
 - 数据库，可导入 resources>sql>uu157441.sql测试数据库
+- 在`application.properties`修改数据库相关信息，如数据库名、用户名、密码等
 - 运行后成功后，web访问地址：http://localhost:9002/user/list
+- 使用了Resful风格，`/user/add`与`/user/update` POST请求建议使用`Postman`软件进行数据传参调试，不会`Postman`可搜索一些资料，使用相当的简单。
